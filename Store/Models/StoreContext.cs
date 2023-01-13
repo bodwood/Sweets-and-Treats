@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Store.Models
 {
-  public class StoreContext : DbContext
+  public class StoreContext : IdentityDbContext<ApplicationUser>
   {
     public DbSet<Flavor> Flavors { get; set; }
     public DbSet<Treat> Treats { get; set; }
