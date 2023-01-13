@@ -3,3 +3,10 @@
 }
 
 <h1>Create Treat</h1>
+
+@model Store.Models.Treat
+@using (@Html.BeginForm())
+{
+  <h3>Treat: @Html.TextBoxFor(model => model.TreatName, new { placeholder="Treat Name"})</h3>
+  <input type="submit" value="Create">
+}
