@@ -33,8 +33,10 @@ namespace Store.Controllers
     }
 
     [HttpPost]
-    public ActionResult CreateTreat()
+    public ActionResult Create(Treat treat)
     {
+      _db.Treats.Add(treat);
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
