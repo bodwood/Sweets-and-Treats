@@ -24,7 +24,7 @@ namespace Store.Controllers
 
     public ActionResult Index()
     {
-      return View();
+      return View(_db.Treats.ToList());
     }
 
     public ActionResult Create()
@@ -40,9 +40,10 @@ namespace Store.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult Details()
+    public ActionResult Details(int id)
     {
-      return View();
+      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
     }
 
     public ActionResult Edit()
