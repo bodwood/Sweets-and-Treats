@@ -26,5 +26,43 @@ namespace Store.Controllers
     {
       return View();
     }
+
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult CreateTreat()
+    {
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Details()
+    {
+      return View();
+    }
+
+    public ActionResult Edit()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult EditTreat()
+    {
+      return RedirectToAction("Details");
+    }
+
+    public ActionResult Delete()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult DeleteTreat()
+    {
+      return RedirectToAction("Index");
+    }
   }
 }
