@@ -24,7 +24,7 @@ namespace Store.Controllers
 
     public ActionResult Index()
     {
-      return View();
+      return View(_db.Flavors.ToList());
     }
 
     public ActionResult Create()
@@ -40,9 +40,10 @@ namespace Store.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult Details()
+    public ActionResult Details(int id)
     {
-      return View();
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
     }
 
     public ActionResult Edit()
