@@ -24,8 +24,5 @@ namespace Store.Controllers
     {
       return View();
     }
-
-    //test index view
-    //commit
   }
 }
