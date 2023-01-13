@@ -3,3 +3,15 @@
 }
 
 <h1>Delete Flavor</h1>
+@model Store.Models.Flavor
+
+
+@using (Html.BeginForm())
+{
+  <li>Name: @Html.DisplayFor(model => model.FlavorName)</li>
+  @Html.HiddenFor(model => model.FlavorId) 
+  <input type="submit" value="Delete" class="btn btn-danger btn-md" style="margin-top: 4%; margin-bottom: 3%">
+}
+
+<p class="enlarge">@Html.ActionLink("Back to Flavors", "Index")</p>
+<p class="enlarge">@Html.ActionLink("Main Menu", "Index", "Home")</p
