@@ -3,3 +3,10 @@
 }
 
 <h1>Create Flavor</h1>
+
+@model Store.Models.Flavor
+@using (@Html.BeginForm())
+{
+  <h3>Flavor: @Html.TextBoxFor(model => model.FlavorName, new { placeholder="Flavor Name"})</h3>
+  <input type="submit" value="Create">
+}
