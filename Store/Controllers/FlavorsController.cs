@@ -61,7 +61,7 @@ namespace Store.Controllers
     public Actionresult AddTreat(Flavor flavor, int treatId)
     {
       #nullable enable
-      TreatFlavor? joinEntity = _db.TreatFlavors.FirstOrDefault(join => (join.TreatId == treatId && join FlavorId == flavor.FlavorId));
+      TreatFlavor? joinEntity = _db.TreatFlavors.FirstOrDefault(join => (join.TreatId == treatId && join.FlavorId == flavor.FlavorId));
       #nullable disable
       if(joinEntity == null && flavorId != 0)
       {
@@ -71,26 +71,43 @@ namespace Store.Controllers
       return RedirectToAction("Details", new { id = flavor.FlavorId});
     }
 
-    public ActionResult Edit()
+    public ActionResult Edit(int id)
     {
-      return View();
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
     }
 
     [HttpPost]
-    public ActionResult EditFlavor()
+    public ActionResult Edit(Flavor flavor)
     {
+      _db.Flavors.Update(flavor);
+      _db.SaveChanges();
       return RedirectToAction("Details");
     }
 
-    public ActionResult Delete()
+    public ActionResult Delete(int id)
     {
-      return View();
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id); 
+      return View(thisFlavor);
     }
 
-    [HttpPost]
-    public ActionResult DeleteFlavor()
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
     {
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      _db.Flavors.Remove(thisFlavor);
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    
+    [HttpPost]
+    public ActionResult DeleteTreat(int joinId)
+    {
+      TreatFlavor joinEntry = _db.TreatFlavors.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
+      _db.TreatFlavors.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
   }
 }
