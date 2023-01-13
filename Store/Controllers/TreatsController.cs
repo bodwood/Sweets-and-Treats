@@ -44,30 +44,34 @@ namespace Store.Controllers
     {
       ViewBag.Flavors = _db.Flavors.ToList();
       Treat thisTreat = _db.Treats
-                                  .Include(treat => treat.JoinEntities)
-                                  .ThenInclude(join => join.Flavor)
-                                  .FirstOrDefault(treat => treat.TreatId == id);
+                            .Include(treat => treat.JoinEntities)
+                            .ThenInclude(join => join.Flavor)
+                            .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
 
-    public ActionResult Edit()
+    public ActionResult Edit(int id)
     {
-      return View();
+      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
     }
 
     [HttpPost]
-    public ActionResult EditTreat()
+    public ActionResult Edit(Treat treat)
     {
-      return RedirectToAction("Details");
+      _db.Treats.Update(mechanic);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
 
-    public ActionResult Delete()
+    public ActionResult Delete(int id)
     {
-      return View();
+      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
     }
 
-    [HttpPost]
-    public ActionResult DeleteTreat()
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
     {
       return RedirectToAction("Index");
     }
