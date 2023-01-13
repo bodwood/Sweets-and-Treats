@@ -6,7 +6,42 @@
 <hr>
 
 @model Store.Models.Treat
+@using Store.Models
 
-<h1>@Html.DisplayFor(model => model.TreatName)</h1>
+<h2>@Html.DisplayFor(model => model.TreatName)</h2>
 
-<p class="enlarge">@Html.ActionLink("Edit Treat", "Edit")</p>
+@if (@Model.JoinEntities.Count == 0 && @ViewBag.Flavors.Count == 0)
+{
+  <p class="text-danger" style="font-weight: bold;">*No flavors are available*</p>
+  <p class="text-danger">Treat cannot be assiged a flavor until a flavor is added to flavor list</p>
+  <p class="enlarge" style="margin-bottom: 4%;">@Html.ActionLink("Add Flavor to Flavor List", "Create", "Flavors")</p>
+}
+else if (@Model.JoinEntities.Count == 0)
+{
+  <p class="text-danger">This treat has no flavors yet..</p>
+  <p class="enlarge" style="margin-bottom: 4%;">@Html.ActionLink("Add Flavor to Treat", "AddFlavor", new { id = Model.TreatId})</p>
+} 
+else
+{
+  <h3 style="margin-bottom: 2%;">Flavors:</h3>
+   <ul>
+    @foreach (TreatFlavor join in Model.JoinEntities)
+    {
+      @using (Html.BeginForm("DeleteFlavor", "Treats"))
+      {
+       <li> 
+        @join.Flavor.FlavorName |
+        @Html.Hidden("joinId", @join.TreatFlavorId)
+        <input type="submit" value="Delete" class="btn btn-danger btn-md"/>
+      </li>
+      }
+    }
+  </ul>
+<p class="enlarge" style="margin-bottom: 4%;">@Html.ActionLink("Add Flavor to Treat", "AddFlavor", new { id = Model.TreatId})</p>
+}
+<hr style="font-size: 10px;">
+
+<p class="enlarge">@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId})</p>
+<p class="enlarge">@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId})</p>
+<p class="enlarge">@Html.ActionLink("Back to Treats", "Index")</p>
+<p class="enlarge">@Html.ActionLink("Main Menu", "Index", "Home")</p>
