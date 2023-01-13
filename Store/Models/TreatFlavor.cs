@@ -9,6 +9,3 @@ namespace Store.Models
     public Treat Treat { get; set; }
   }
 }
-
-//install dependencies
-//make commits
