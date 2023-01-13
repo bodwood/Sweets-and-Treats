@@ -3,3 +3,10 @@
 }
 
 <h1>Flavor Details</h1>
+<hr>
+
+@model Store.Models.Flavor
+
+<h1>@Html.DisplayFor(model => model.FlavorName)</h1>
+
+<p>@Html.ActionLink("Edit Flavor", "Edit")</p>
