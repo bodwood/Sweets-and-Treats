@@ -2,8 +2,36 @@
   Layout = "_Layout";
 }
 
-<h1>Home Index</h1>
+@using Store.Models;
 
+<h1>Treats</h1>
+@if (Model["treats"].Length == 0)
+{
+  <p>No treats yet..</p>
+  <p class="enlarge">@Html.ActionLink("Add Treat", "Create", "Treats")</p>
+}
+<ul>
+  @foreach (Treat treat in Model["treats"])
+  {
+    <li class="enlarge">@Html.ActionLink(@treat.TreatName, "Details", "Treats", new { id = @treat.TreatId})</li>
+  }
+</ul>
 
+<h1>Flavors</h1>
+@if (Model["flavors"].Length == 0)
+{
+  <p>No flavors yet...</p>
+  <p class="enlarge">@Html.ActionLink("Add Flavor", "Create", "Flavors")</p>
+} 
+<ul>
+  @foreach (Flavor flavor in Model["flavors"])
+  {
+    <li class="enlarge">@Html.ActionLink(@flavor.FlavorName, "Details", "Flavors", new { id = @flavor.FlavorId})</li>
+  }
+</ul>
+
+<br>
+<br>
+<br>
 <p>@Html.ActionLink("Manage Treats", "Index", "Treats")</p>
 <p>@Html.ActionLink("Manage Flavors", "Index", "Flavors")</p>

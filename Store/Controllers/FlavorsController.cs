@@ -53,17 +53,17 @@ namespace Store.Controllers
     public ActionResult AddTreat(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisFlavor);
     }
 
     [HttpPost]
-    public Actionresult AddTreat(Flavor flavor, int treatId)
+    public ActionResult AddTreat(Flavor flavor, int treatId)
     {
       #nullable enable
       TreatFlavor? joinEntity = _db.TreatFlavors.FirstOrDefault(join => (join.TreatId == treatId && join.FlavorId == flavor.FlavorId));
       #nullable disable
-      if(joinEntity == null && flavorId != 0)
+      if(joinEntity == null && treatId != 0)
       {
         _db.TreatFlavors.Add(new TreatFlavor() { TreatId = treatId, FlavorId = flavor.FlavorId});
         _db.SaveChanges();

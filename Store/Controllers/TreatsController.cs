@@ -54,7 +54,7 @@ namespace Store.Controllers
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
-      return View(thisMechanic);
+      return View(thisTreat);
     }
 
     [HttpPost]
@@ -80,7 +80,7 @@ namespace Store.Controllers
     [HttpPost]
     public ActionResult Edit(Treat treat)
     {
-      _db.Treats.Update(mechanic);
+      _db.Treats.Update(treat);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
