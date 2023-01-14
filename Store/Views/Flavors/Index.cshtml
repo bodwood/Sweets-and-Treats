@@ -12,10 +12,12 @@
   <h2>No Flavors have been added..</h2>
 }
 else{
+  <ul style="margin-bottom: 4%">
 @foreach (Flavor flavor in Model)
 {
-  <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", new {id = flavor.FlavorId})</li>
+  <li class="enlarge">@Html.ActionLink($"{flavor.FlavorName}", "Details", new {id = flavor.FlavorId})</li>
 }
+</ul>
 }
 
 <p class="enlarge">@Html.ActionLink("Create Flavor", "Create", "Flavors")</p>
