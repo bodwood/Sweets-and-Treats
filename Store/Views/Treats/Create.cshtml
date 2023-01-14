@@ -8,7 +8,7 @@
 @using (@Html.BeginForm())
 {
   <h3>Treat: @Html.TextBoxFor(model => model.TreatName, new { placeholder="Treat Name"})</h3>
-  <input type="submit" value="Create">
+  <input type="submit" value="Create" class="btn btn-info">
 }
 
 <p class="enlarge">@Html.ActionLink("Back to Treats", "Index")</p>
