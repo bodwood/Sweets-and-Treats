@@ -6,7 +6,7 @@
 
 @model LoginViewModel
 
-<h2>Log in with your account</h2>
+<h1>Log in</h1>
 <hr />
 
 @if(!ViewData.ModelState.IsValid) 
@@ -16,14 +16,14 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(m => m.Email)
-  @Html.TextBoxFor(m => m.Email)
+  <h4>@Html.LabelFor(m => m.Email) @Html.TextBoxFor(m => m.Email)</h4>
+  <br>
 
-  @Html.LabelFor(m => m.Password)
-  @Html.EditorFor(m => m.Password)
+  <h4>@Html.LabelFor(m => m.Password) @Html.EditorFor(m => m.Password)</h4>
+  <br>
 
-  <input type="submit" value="Log in" />
+  <input type="submit" value="Log in" class="btn btn-info" style="margin-bottom: 4%;" />
 }
 
-<p>@Html.ActionLink("Register for an account", "Register")</p>
-<p>@Html.ActionLink("Back to accounts page", "Index")</p>
+<p class="enlarge">@Html.ActionLink("Register for an account", "Register")</p>
+<p class="enlarge">@Html.ActionLink("Back to accounts page", "Index")</p>
