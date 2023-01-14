@@ -19,7 +19,7 @@
 
 ## Description
 
-This web application allows users to view the flavors and treats of Pierre's Treats. Users can click on individual treats or flavors to view all the treats/flavors that belong to it. Users can create, edit, and delete flavors and treats if they register for an account and signin to such account. Signed in users can add flavors to each treat, and users can add treats to each flavor.
+This web application allows users to view the flavors and treats of Pierre's Treats. Users can click on individual treats or flavors to view all the treats/flavors that it belongs to. Users can create, edit, and delete flavors and treats if they register for an account and signin to such account. Signed in users can add flavors to each treat, and users can add treats to each flavor.
 
 ## Setup/Installation Requirements
 
