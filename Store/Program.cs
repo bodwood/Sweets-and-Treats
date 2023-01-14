@@ -10,6 +10,7 @@ namespace Store
   {
     static void Main(string[] args)
     {
+
       WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
       builder.Services.AddControllersWithViews();
@@ -21,21 +22,10 @@ namespace Store
                           )
                         )
                       );
-
+      
       builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-      .AddEntityFrameworkStores<StoreContext>()
-      .AddDefaultTokenProviders();
-
-      builder.Services.Configure<IdentityOptions>(options =>    //overrrides default password requirements
-      {
-        // Default Password settings.
-        options.Password.RequireDigit = false;
-        options.Password.RequireLowercase = false;
-        options.Password.RequireNonAlphanumeric = false;
-        options.Password.RequireUppercase = false;
-        options.Password.RequiredLength = 0;
-        options.Password.RequiredUniqueChars = 0;
-      });
+                .AddEntityFrameworkStores<StoreContext>()
+                .AddDefaultTokenProviders();
 
       WebApplication app = builder.Build();
 
@@ -45,12 +35,13 @@ namespace Store
 
       app.UseRouting();
 
-      app.UseAuthentication();
+      app.UseAuthentication(); 
       app.UseAuthorization();
 
       app.MapControllerRoute(
           name: "default",
-          pattern: "{controller=Home}/{action=Index}/{id?}");
+          pattern: "{controller=Home}/{action=Index}/{id?}"
+        );
 
       app.Run();
     }

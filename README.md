@@ -19,7 +19,7 @@
 
 ## Description
 
-This website gives employers the ability to see a view of all flavors and treats on one splash screen.
+This web application allows users to view the flavors and treats of Pierre's Treats. Users can click on individual treats or flavors to view all the treats/flavors that belong to it. Users can create, edit, and delete flavors and treats if they register for an account and signin to such account. Signed in users can add flavors to each treat, and users can add treats to each flavor.
 
 ## Setup/Installation Requirements
 
@@ -28,7 +28,7 @@ This website gives employers the ability to see a view of all flavors and treats
   2. Once GIT is installed, open your terminal and navigate to the desired landing folder
   3. In the terminal run:
     - ```git clone https://github.com/bodwood/Sweets-and-Treats.git ```
-    - ```cd Mechanic-Factory ```
+    - ```cd Pierres-Treats```
 * Install .NET 6 SDK. If .NET 6 SDK is needed, click here: [Install .NET 6 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 * Install necessary packages for EF Core and a tool to database updates:
     - ```dotnet add package Microsoft.EntityFrameworkCore -v 6.0.0```
@@ -39,8 +39,8 @@ This website gives employers the ability to see a view of all flavors and treats
   - ```touch .gitignore```
   - ```echo "*/obj/ */bin/ */appsettings.json" > .gitignore ```
 
-* Create a new file called ```appsettings.json``` within the Factory directory by running the following:
-  - ```cd Factory```
+* Create a new file called ```appsettings.json``` within the Store directory by running the following:
+  - ```cd Store```
   - ```touch appsettings.json```
   - ```
     echo '{
@@ -52,16 +52,16 @@ This website gives employers the ability to see a view of all flavors and treats
 * _Make sure to set uid and pwd_
 
 * Update Database by running the following:
-  - ```dotnet ef database update --project Factory```
+  - ```dotnet ef database update --project Store```
 
 * Install dependencies:
   - ```npm install```
 
 * Build project:
-  - ```dotnet build Factory/```
+  - ```dotnet build Store/```
 
 * Run project:
-  - ```dotnet run --project Factory/```
+  - ```dotnet run --project Store/```
 
 - Navigate to [http://localhost:5000](http://localhost:5000) to try application
 

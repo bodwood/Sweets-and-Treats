@@ -11,6 +11,7 @@ using Store.Models;
 
 namespace Store.Controllers
 {
+  [Authorize]
   public class TreatsController : Controller
   {
     private readonly UserManager<ApplicationUser> _userManager;
@@ -22,6 +23,7 @@ namespace Store.Controllers
       _db = db;
     }
 
+    [AllowAnonymous]
     public ActionResult Index()
     {
       return View(_db.Treats.ToList());
@@ -40,6 +42,7 @@ namespace Store.Controllers
       return RedirectToAction("Index");
     }
 
+    [AllowAnonymous]
     public ActionResult Details(int id)
     {
       ViewBag.Flavors = _db.Flavors.ToList();
