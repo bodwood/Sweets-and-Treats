@@ -11,10 +11,9 @@
 {
   @Html.HiddenFor(model => model.FlavorId)
 
-  <h3>@Html.Label("Select Treat")</h3>
-  <h3>@Html.DropDownList("TreatId")</h3>
+  <h3>@Html.Label("Select Treat") @Html.DropDownList("TreatId")</h3>
 
   <input type="submit" value="Add" class="btn btn-lg btn-info" style="margin-top: 4%;"/>
 }
 
-<p>@Html.ActionLink("Edit Flavor", "Edit")</p>
+<p class="enlarge">@Html.ActionLink("Edit Flavor", "Edit")</p>

@@ -12,7 +12,6 @@
 {
   @Html.HiddenFor(model => model.FlavorId)
   <li>Name: @Html.EditorFor(model => model.FlavorName, new {placeholder = @Html.DisplayFor(model => model.FlavorName)})</li>
-   @* <h3>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })</h3> *@
   
   <input type="submit" value="Edit" class="btn btn-lg btn-info" style="margin-bottom: 4%;"/>
 }

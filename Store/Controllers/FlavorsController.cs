@@ -85,7 +85,7 @@ namespace Store.Controllers
     {
       _db.Flavors.Update(flavor);
       _db.SaveChanges();
-      return RedirectToAction("Details");
+      return RedirectToAction("Details", new { id = flavor.FlavorId});
     }
 
     public ActionResult Delete(int id)
